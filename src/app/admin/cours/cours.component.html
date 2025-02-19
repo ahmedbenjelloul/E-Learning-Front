@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen"></mat-drawer>
+  <mat-drawer-content>
+    <div class="container-fluid page">
+      <br>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <h5 class="card-title"><span class="text-muted fw-normal ms-2"></span></h5>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+              <div class="col-lg-12 justify-content-end text-right">
+                <div class="ms-auto float-right">
+                    <i class="fas fa-plus-circle" style="font-size: 38px; color: #e91818; cursor: pointer;" (click)="add()"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table project-list-table table-nowrap align-middle table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="ps-4" style="width: 50px;">
+                          <div class="form-check font-size-16">
+                            <input type="checkbox" class="form-check-input" id="contacusercheck" />
+                            <label class="form-check-label" for="contacusercheck"></label>
+                          </div>
+                        </th>
+                        <th scope="col">Titre Cours</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Prix</th>
+                      
+                        <th scope="col" style="width: 200px;">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr >
+                        <th scope="row" class="ps-4">
+                          <div class="form-check font-size-16">
+                            <input type="checkbox" class="form-check-input" id="contacusercheck4" />
+                            <label class="form-check-label" for="contacusercheck4"></label>
+                        
+                          </div>
+                        </th>
+                        <td></td>
+                        <td></td>
+                        
+                        <td></td>
+                       
+                        <td>
+                            <ul class="list-inline mb-0">
+                              <li class="list-inline-item">
+                                <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary" >
+                                  <i class="bx bx-pencil font-size-18"></i>
+                                </a>
+                              </li>
+                              <li class="list-inline-item">
+                                <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger" >
+                                  <i class="bx bx-trash-alt font-size-18"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
