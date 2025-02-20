@@ -4,7 +4,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angu
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core'; // Nécessaire pour mat-option
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './admin/navbar/navbar.component';
@@ -20,7 +21,9 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { HomeComponent } from './home/home/home.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
   MatSidenavModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatIconModule,
+    MatIconModule,MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule, MatSelectModule,
+    MatOptionModule, // Ajoutez ceci
   
     // Bootstrap Modal
     NgbModalModule,JwtModule.forRoot({

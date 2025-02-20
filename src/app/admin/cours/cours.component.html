@@ -9,7 +9,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="mb-3">
-              <h5 class="card-title"><span class="text-muted fw-normal ms-2"></span></h5>
+              <h5 class="card-title">Liste des cours</h5>
             </div>
           </div>
           <div class="col-md-6">
@@ -22,6 +22,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-lg-12">
             <div class="table-responsive">
@@ -37,37 +38,31 @@
                         <th scope="col">Titre Cours</th>
                         <th scope="col">Description</th>
                         <th scope="col">Prix</th>
-                      
+                
                         <th scope="col" style="width: 200px;">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr >
+                      <tr *ngFor="let cours of ListCours">
                         <th scope="row" class="ps-4">
                           <div class="form-check font-size-16">
-                            <input type="checkbox" class="form-check-input" id="contacusercheck4" />
-                            <label class="form-check-label" for="contacusercheck4"></label>
-                        
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label"></label>
                           </div>
                         </th>
-                        <td></td>
-                        <td></td>
-                        
-                        <td></td>
-                       
+ 
+                        <td>{{ cours.titre }}</td>
+                        <td>{{ cours.description }}</td>
+                        <td>{{ cours.prix }} TND</td>
+
                         <td>
-                            <ul class="list-inline mb-0">
-                              <li class="list-inline-item">
-                                <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary" >
-                                  <i class="bx bx-pencil font-size-18"></i>
-                                </a>
-                              </li>
-                              <li class="list-inline-item">
-                                <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger" >
-                                  <i class="bx bx-trash-alt font-size-18"></i>
-                                </a>
-                              </li>
-                            </ul>
+                          
+                      <button type="button" class="btn btn-primary mt-3 btnn-rounded waves-effect w-md waves-light buttonn" (click)="update(cours.idCours)">update
+                      </button> &nbsp;
+
+                      <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light" (click)="supprimer(cours.idCours)">delete</button> 
+
+                           
                           </td>
                       </tr>
                     </tbody>

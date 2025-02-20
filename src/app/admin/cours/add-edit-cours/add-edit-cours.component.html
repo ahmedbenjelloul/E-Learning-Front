@@ -1,1 +1,44 @@
-<p>add-edit-cours works!</p>
+<div class="dialog-container">
+    <h1>{{ editmode ? 'Ajouter' : 'Modifier' }} un Cours</h1>
+    <form class="form-container" [formGroup]="Reactiveform" (ngSubmit)="getReservFormData()">
+  
+        <div class="form-field">
+            <mat-form-field>
+              <mat-label>IdCours</mat-label>
+              <input matInput type="text" formControlName="idCours" required>
+            </mat-form-field>
+          </div>
+  
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Titre</mat-label>
+          <input matInput type="text" formControlName="titre" required>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput type="text" formControlName="description" required>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label>Prix</mat-label>
+          <input matInput type="number" formControlName="prix" required>
+        </mat-form-field>
+      </div>
+  
+      
+  
+      <div class="dialog-actions">
+        <button type="button" class="btn-cancel" (click)="dialogRef.close()">Fermer</button>
+        <button mat-raised-button color="primary" type="submit" class="btn-submit">
+          {{ editmode ? 'Enregistrer' : 'Modifier' }}
+        </button>
+      </div>
+  
+    </form>
+  </div>
+  
