@@ -1,0 +1,7 @@
+export enum Role {
+  ROLE_APPRENANT= 'APPRENANT',
+    
+  ROLE_FORMATEUR='FORMATEUR',
+  ROLE_ADMIN="ADMIN"
+   
+  }

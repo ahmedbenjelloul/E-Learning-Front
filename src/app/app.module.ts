@@ -16,6 +16,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
+import { HomeComponent } from './home/home/home.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -25,6 +29,9 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     CoursComponent,
     AddEditCoursComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -40,10 +47,22 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
   
     // Bootstrap Modal
-    NgbModalModule
+    NgbModalModule,JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        },
+        allowedDomains: ['*'], // Replace with your domain
+        disallowedRoutes: [] // Replace with your API URL
+      }
+    }),
   ],
   
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

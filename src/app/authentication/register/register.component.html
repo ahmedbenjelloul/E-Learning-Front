@@ -1,0 +1,37 @@
+<div class="register-container">
+    <div class="register-wrapper">
+        <h2 class="register-heading">Register</h2>
+        <form id="register-form" (ngSubmit)="register()" class="register-form">
+            <div class="form-group">
+                <input type="text"  [(ngModel)]="registerRequest.prenom" name="prenom" class="form-control" placeholder="First Name" required />
+            </div>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="registerRequest.nom" name="nom" class="form-control" placeholder="Last Name" required />
+            </div>
+            <div class="form-group">
+                <input type="email" [(ngModel)]="registerRequest.email" name="email" class="form-control" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="registerRequest.password" name="password" class="form-control" placeholder="Password" required />
+            </div>
+            <div class="form-group">
+                <input type="tel"  [(ngModel)]="registerRequest.login"  name="login" class="form-control" placeholder="Login" required />
+            </div>
+           
+            <div class="form-group">
+                <input type="file" name="profileImage" class="form-control-file" accept="image/*" (change)="onFileSelected($event)" />
+            </div>
+            <div class="form-group">
+                <select [(ngModel)]="registerRequest.role" name="role" class="form-control" required>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="APPRENANT">APPRENANT</option>
+                    <option value="FORMATEUR">FORMATEUR</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
