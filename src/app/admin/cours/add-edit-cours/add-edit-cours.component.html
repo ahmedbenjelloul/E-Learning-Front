@@ -1,44 +1,65 @@
 <div class="dialog-container">
-    <h1>{{ editmode ? 'Ajouter' : 'Modifier' }} un Cours</h1>
-    <form class="form-container" [formGroup]="Reactiveform" (ngSubmit)="getReservFormData()">
-  
-        <div class="form-field">
-            <mat-form-field>
-              <mat-label>IdCours</mat-label>
-              <input matInput type="text" formControlName="idCours" required>
-            </mat-form-field>
-          </div>
-  
+  <h2 mat-dialog-title>{{ editmode ? 'Modifier' : 'Ajouter' }} un Cours</h2>
+
+  <form class="form-container" [formGroup]="Reactiveform" (ngSubmit)="getReservFormData()">
+    <mat-dialog-content>
+
       <div class="form-field">
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Id Cours</mat-label>
+          <input matInput type="text" formControlName="idCours" required>
+          <mat-error *ngIf="Reactiveform.controls['idCours'].hasError('required')">
+            L'ID du cours est obligatoire
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field">
+        <mat-form-field appearance="outline">
           <mat-label>Titre</mat-label>
           <input matInput type="text" formControlName="titre" required>
+          <mat-error *ngIf="Reactiveform.controls['titre'].hasError('required')">
+            Le titre est obligatoire
+          </mat-error>
         </mat-form-field>
       </div>
-  
+
       <div class="form-field">
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Description</mat-label>
-          <input matInput type="text" formControlName="description" required>
+          <textarea matInput rows="3" formControlName="description" required></textarea>
+          <mat-error *ngIf="Reactiveform.controls['description'].hasError('required')">
+            La description est obligatoire
+          </mat-error>
         </mat-form-field>
       </div>
-  
+
       <div class="form-field">
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Prix</mat-label>
           <input matInput type="number" formControlName="prix" required>
+          <mat-error *ngIf="Reactiveform.controls['prix'].hasError('required')">
+            Le prix est obligatoire
+          </mat-error>
         </mat-form-field>
       </div>
-  
-      
-  
-      <div class="dialog-actions">
-        <button type="button" class="btn-cancel" (click)="dialogRef.close()">Fermer</button>
-        <button mat-raised-button color="primary" type="submit" class="btn-submit">
-          {{ editmode ? 'Enregistrer' : 'Modifier' }}
-        </button>
-      </div>
-  
-    </form>
-  </div>
-  
+      <mat-form-field appearance="outline">
+        <mat-label>Formateur</mat-label>
+        <mat-select formControlName="formateur" required>
+          <mat-option *ngFor="let formateur of formateurs" [value]="formateur.id">
+            {{ formateur.nom }} {{ formateur.prenom }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-stroked-button color="warn" type="button" (click)="dialogRef.close()">
+        Fermer
+      </button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="Reactiveform.invalid">
+        {{ editmode ? 'Modifier' : 'Enregistrer' }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

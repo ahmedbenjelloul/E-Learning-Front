@@ -30,8 +30,10 @@ export class CoursComponent implements OnInit {
           })
   }
   update(id: any) {
-    this.editmode = true;
-    this.OpenDialog('1000ms', '600ms', id, this.editmode);
+    this.dialog.open(AddEditCoursComponent, {
+      width: '600px',
+      data: { id: id, editmo: true }, // Assure-toi de bien passer editmo: true
+    });
   }
   
   add() {

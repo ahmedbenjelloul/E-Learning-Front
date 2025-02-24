@@ -24,8 +24,14 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+<<<<<<< HEAD
 import { QuizComponent } from './quiz/quiz.component';
 
+=======
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+>>>>>>> b02c4377ba71e9982d07acce5a4e53d301946c59
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +57,9 @@ import { QuizComponent } from './quiz/quiz.component';
     MatDialogModule,
     MatIconModule,MatFormFieldModule,
     MatInputModule,
-    MatButtonModule, MatSelectModule,
+    MatButtonModule, MatSelectModule,MatTableModule,
     MatOptionModule, // Ajoutez ceci
-  
+    MatCheckboxModule,MatCardModule,
     // Bootstrap Modal
     NgbModalModule,JwtModule.forRoot({
       config: {

@@ -39,6 +39,8 @@ export class CoursService {
   findAll(): Observable<Cours[]> {
     return this.http.get<Cours[]>(`${this.apiUrl}/courses/all`);
   }
-
+  getFormateurs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/users/formateurs`);
+  }
   
 }
