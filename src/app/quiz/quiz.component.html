@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Gestion des Quiz</h2>
+    <form (ngSubmit)="createQuiz()">
+      <input type="text" [(ngModel)]="newQuiz.titre" name="titre" placeholder="Titre du Quiz" required />
+      <input type="number" [(ngModel)]="newQuiz.score" name="score" placeholder="Score" required />
+      <input type="number" [(ngModel)]="newQuiz.scoreMinimum" name="scoreMinimum" placeholder="Score Minimum" required />
+      <button type="submit">Ajouter Quiz</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let quiz of quizzes">
+        {{ quiz.titre }} - Score : {{ quiz.score }} / Minimum : {{ quiz.scoreMinimum }}
+        <button (click)="deleteQuiz(quiz.idQuiz!)">Supprimer</button>
+      </li>
+    </ul>
+  </div>

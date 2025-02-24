@@ -24,6 +24,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    QuizComponent,
 
   ],
   imports: [
